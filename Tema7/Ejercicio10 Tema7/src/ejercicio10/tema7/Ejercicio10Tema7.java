@@ -44,11 +44,20 @@ public class Ejercicio10Tema7 {
     }
     //Metodo que sustituye los valores repetidos por 0 
     public static void sustituirRepetidos(int[]vector){
+        boolean repetido;
         for(int i = 0; i < vector.length; i++){//El primer for de i toma un numero
+            repetido=false;
             for( int j = i +1; j < vector.length; j++){//El for de j compara ese número con los de la derecha
                 if (vector[i] == vector[j]){//Si encuentra el mismo numero repetido lo cambia a 0
                     vector[j] = 0;
+                    repetido =true;
+                    
                 }
+            }
+            if(repetido){
+                vector[i]= 0;
+                
+                        
             }
         }
     }
