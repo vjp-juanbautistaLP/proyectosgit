@@ -77,11 +77,12 @@ public class Ejercicio16Tema7 {
                     double mejorMedia = 0;
                     //Guardara la posicion del alumno que tiene esa mejor media
                     int posMejor = 0;
-                    
+                    //Declaramos la variable suma
+                    double suma = 0;
                     //Recorremos alumnos para calcular la media de cada uno
                     for (int i = 0; i < alumnos.length; i++) {
                         //Suma acumula las notas de ese alumno
-                        double suma = 0;
+                        suma =0;
                         //Sumamos las notas de todas las asignaturas del alumno i
                         for (int j = 0; j < asignaturas.length; j++) {
                             suma += notas[i][j];
@@ -105,11 +106,12 @@ public class Ejercicio16Tema7 {
                     int maxSuspensos = 0;
                     //Guardamos la posicion del alumno con más suspensos
                     int posSuspensos = 0;
-                    
+                    //Declaramos la variable suspensos
+                    int suspensos;
                     //Recorremos alumnos
                     for (int i = 0; i < alumnos.length; i++) {
                         //Contador de suspensos del alumno i
-                        int suspensos = 0;
+                        suspensos=0;
                         //Recorremos asignaturas para contar cuantas notas suspensas( <5) tiene
                         for (int j = 0; j < asignaturas.length; j++) {
                             if (notas[i][j] < 5) {
@@ -138,7 +140,7 @@ public class Ejercicio16Tema7 {
                     //Recorremos asignaturas
                     for (int j = 0; j < asignaturas.length; j++) {
                         //Acumala las notas de TODOS los alumnos en esa asignatura
-                        double suma = 0;
+                        suma=0;
                         //Recorremos alumnos para sumar notas de la asignatura j
                         for (int i = 0; i < alumnos.length; i++) {
                             suma += notas[i][j];
