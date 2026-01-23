@@ -78,7 +78,7 @@ public class Ejercicio16Tema7 {
                     //Guardara la posicion del alumno que tiene esa mejor media
                     int posMejor = 0;
                     //Declaramos la variable suma
-                    double suma = 0;
+                    double suma;
                     //Recorremos alumnos para calcular la media de cada uno
                     for (int i = 0; i < alumnos.length; i++) {
                         //Suma acumula las notas de ese alumno
