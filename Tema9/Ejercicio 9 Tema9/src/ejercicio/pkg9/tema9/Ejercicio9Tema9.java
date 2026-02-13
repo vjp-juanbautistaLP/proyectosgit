@@ -16,51 +16,48 @@ public class Ejercicio9Tema9 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Scanner entrada = new Scanner(System.in);
 
-        //Pedir usuario y contraseña
+        Scanner entrada = new Scanner(System.in);
+        //Le pedimos al usuario que introduzca su nombre y su contraseña
         System.out.println("Introduce nombre de usuario: ");
         String usuario = entrada.nextLine();
 
-        System.out.println("Introduce contraseña : ");
-        String contraseña = entrada.nextLine();
+        System.out.println("Introduce contrasena: ");
+        String contrasena = entrada.nextLine();
 
-        //Variable para contar dígitos
+        //Llamamos al metodo pasanso usuario y contraseña
+        if (validarContrasena(usuario, contrasena)) {
+            System.out.println("Contrasena valida.");
+        } else {
+            System.out.println("Contrasena no valida.");
+        }
+
+        entrada.close();//Cerramos el Scanner
+    }
+
+    public static boolean validarContrasena(String usuario, String contrasena) {
+        //Si la contraseña tiene menos de 6 caracteres no es valida
+        if (contrasena.length() < 6) {
+            return false;
+        }
+        //Nos creamos una variable para contar cuantos digitos tiene la contraseña
         int contadorDigitos = 0;
-
-        //Contar cuantos digitos tiene la contraseña
-        for (int i = 0; i < contraseña.length(); i++) {
-            if (Character.isDigit(contraseña.charAt(i))) {
+        //Comprobamos que contiene al menos 2 digitso
+        for (int i = 0; i < contrasena.length(); i++) {
+            char c = contrasena.charAt(i);
+            if (c >= '0' && c <= '9') {
                 contadorDigitos++;
             }
         }
-        // Validaciones
-        boolean longitudValida = contraseña.length() >= 6;
-        boolean digitosValidos = contadorDigitos >= 2;
-        boolean usuarioNoIncluido = !contraseña.toLowerCase()
-                .contains(usuario.toLowerCase());
-
-        // Comprobar todas las condiciones
-        if (longitudValida && digitosValidos && usuarioNoIncluido) {
-            System.out.println("Contraseña válida.");
-        } else {
-            System.out.println("Contraseña no válida.");
-
-            if (!longitudValida) {
-                System.out.println("- Debe tener al menos 6 caracteres.");
-            }
-
-            if (!digitosValidos) {
-                System.out.println("- Debe contener al menos 2 dígitos.");
-            }
-
-            if (!usuarioNoIncluido) {
-                System.out.println("- No puede contener el nombre de usuario.");
-            }
+        //Si tiene menos de 2 digitos no es valida
+        if (contadorDigitos < 2) {
+            return false;
         }
-
-        entrada.close();
-
+        //Si la contraseña contiene el nombre de usuario convertimos ambos a minuscula para evitar problemas con mayusculas
+        if (contrasena.toLowerCase().contains(usuario.toLowerCase())) {
+            return false;
+        }
+        //Si pasa todas las validaciones, la contraseña es válida
+        return true;
     }
-
 }
